@@ -21,7 +21,7 @@ import java.sql.Timestamp;
 import java.util.List;
 
 @RestController
-@RequestMapping("demo")
+@RequestMapping("orderInfo")
 @Tag(name = "Greetings", description = "Greetings controllers")
 public class OrderInfoController {
 
@@ -38,9 +38,9 @@ public class OrderInfoController {
      */
     @Operation(summary = "Method test", description = "Method test")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "OK", content = @Content(schema = @Schema(implementation = String.class)))
+            @ApiResponse(responseCode = "200", description = "OK", content = @Content(schema = @Schema(implementation = List.class)))
     })
-    @GetMapping(path = "get", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public List<OrderInfoResponse> getOrderInfo(
             @Parameter(description = "application date", example = "2020-06-14 00:00:00") @RequestParam(
                     name = "appDate") @NotNull Timestamp appDate,
